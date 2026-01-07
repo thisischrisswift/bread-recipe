@@ -1,14 +1,34 @@
 // Simple interaction to check off ingredients
 document.addEventListener('DOMContentLoaded', () => {
   const ingredients = document.querySelectorAll('.checklist li');
-  
+
   ingredients.forEach(item => {
+    // Make accessible
+    item.setAttribute('role', 'checkbox');
+    item.setAttribute('aria-checked', 'false');
+    item.setAttribute('tabindex', '0');
+
+    // Mouse click
     item.addEventListener('click', () => {
-      item.classList.toggle('checked');
-      updateStyle(item);
+      toggleItem(item);
     });
+
+    // Keyboard interaction
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Prevent scroll for Space
+        toggleItem(item);
+      }
+    });
+
     item.style.cursor = 'pointer';
   });
+
+  function toggleItem(item) {
+    const isChecked = item.classList.toggle('checked');
+    item.setAttribute('aria-checked', isChecked);
+    updateStyle(item);
+  }
 
   function updateStyle(item) {
     if (item.classList.contains('checked')) {
