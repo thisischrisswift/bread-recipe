@@ -1,21 +1,23 @@
 :root {
-  /* Color Palette */
-  --color-bg: #FCFAF7;
-  /* Off-white/Cream */
-  --color-text-main: #2C241B;
-  /* Dark earthy brown */
-  --color-text-muted: #6B5D52;
-  --color-accent: #A05020;
-  /* Warm baked crust color - Darkened for ADA */
-  --color-accent-dark: #8B4513;
-  --color-highlight: #F5E6D3;
-  /* Light wheat */
-  --color-surface: #FFFFFF;
-  --color-border: #E8E0D5;
+  /* Color Palette - Old Style */
+  --color-bg: #FDF8E8;
+  /* Warm Parchment */
+  --color-text-main: #2A2118;
+  /* Dark Ink */
+  --color-text-muted: #5C4A3D;
+  /* Faded Ink */
+  --color-accent: #8B3A18;
+  /* Deep Rust/Brick */
+  --color-accent-dark: #5e260f;
+  --color-highlight: #EFE6D5;
+  /* Darker Parchment */
+  --color-surface: #F4EEDD;
+  /* Light Parchment Surface */
+  --color-border: #D6CBB8;
 
   /* Typography */
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'IM Fell English SC', serif;
+  --font-body: 'IM Fell English', serif;
 
   /* Spacing */
   --space-sm: 0.5rem;
@@ -23,9 +25,9 @@
   --space-lg: 2rem;
   --space-xl: 4rem;
 
-  /* Border Radius */
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  /* Border Radius - Removed for Old Style */
+  --radius-md: 0px;
+  --radius-lg: 0px;
 }
 
 * {
@@ -38,8 +40,21 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg);
   color: var(--color-text-main);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  /* Larger for IM Fell English readability */
   -webkit-font-smoothing: antialiased;
+  background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.step-illu {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto var(--space-md);
+  display: block;
+  mix-blend-mode: multiply;
+  /* Make white bg transparent on parchment */
+  filter: contrast(1.1) sepia(0.3);
 }
 
 h1,
@@ -135,21 +150,26 @@ img {
 .btn-primary {
   display: inline-block;
   background-color: var(--color-accent);
-  color: white;
+  color: #FDF8E8;
   padding: 1rem 2.5rem;
   text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  border-radius: 0;
+  /* Hard corners */
+  border: 2px solid var(--color-accent-dark);
+  font-weight: 400;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  font-size: 0.9rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px rgba(42, 33, 24, 0.2);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-dark);
-  transform: translateY(-2px);
+  transform: translate(2px, 2px);
+  /* Click effect */
+  box-shadow: 2px 2px 0px rgba(42, 33, 24, 0.2);
 }
 
 /* Layout */
