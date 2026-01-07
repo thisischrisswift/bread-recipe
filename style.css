@@ -74,15 +74,19 @@ img {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 90vh;
-  /* Almost full viewport */
-  min-height: 600px;
+  height: 60vh;
+  /* Reduced height since no image */
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  color: var(--color-surface);
+  color: var(--color-text-main);
+  /* Dark text on parchment */
+  background-color: var(--color-accent);
+  /* solid brand color backing */
+  border-bottom: 2px solid var(--color-text-main);
 }
 
 .hero-image-container {
