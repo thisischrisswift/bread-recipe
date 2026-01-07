@@ -16,7 +16,8 @@
   --color-border: #D6CBB8;
 
   /* Typography */
-  --font-heading: 'IM Fell English SC', serif;
+  --font-heading: 'IM Fell English', serif;
+  /* Removed SC (Small Caps) */
   --font-body: 'IM Fell English', serif;
 
   /* Spacing */
@@ -62,7 +63,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  font-weight: 700;
+  font-weight: 400;
+  /* Regular weight, not bold for this font */
   color: var(--color-text-main);
 }
 
@@ -325,15 +327,20 @@ ul {
 }
 
 .note-box.warning {
-  background: #fff5f5;
-  color: #c53030;
-  border-left: 4px solid #fc8181;
+  background: transparent;
+  color: #2A2118;
+  border: 1px solid #2A2118;
+  border-left: 1px solid #2A2118;
+  /* Consistent border */
+  font-style: italic;
 }
 
 .note-box.info {
-  background: #ebf8ff;
-  color: #2c5282;
-  border-left: 4px solid #63b3ed;
+  background: transparent;
+  color: #2A2118;
+  border: 1px solid #2A2118;
+  border-left: 1px solid #2A2118;
+  font-style: italic;
 }
 
 /* Notes Grid */
